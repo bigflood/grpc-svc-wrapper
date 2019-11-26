@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package hello.v1;
+option go_package = "pb";
+
+// The service definition.
+service Hello {
+    rpc Say (SayRequest) returns (SayReply) {
+    }
+
+    // Receive event stream such as matching results.
+    rpc Talk (TalkRequest) returns (stream TalkReply) {
+    }
+
+}
+
+message SayRequest {
+    string msg = 1;
+}
+
+message SayReply {
+    string msg = 1;
+}
+
+message TalkRequest {
+    string msg = 1;
+}
+
+message TalkReply {
+    string msg = 1;
+}
